@@ -74,5 +74,5 @@ select a.id,a.name,a.quantity,a.l_id,b.id,b.lei,b.bei from library as a join kin
  from think_student a inner join think_jibie b on a.j_id = b.j_id
  where b.j_name = '五星级';
 
-
+1
 
