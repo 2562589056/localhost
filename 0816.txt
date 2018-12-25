@@ -1,25 +1,25 @@
-0816_ÊÚ¿ÎÄÚÈİ:
-ĞŞ¸Ä±íÃû
+0816_æˆè¯¾å†…å®¹
+ä¿®æ”¹è¡¨å
 alter table student rename think_student;
 
-Êı¾İ¿âÔö¼ÓĞÂÁĞÃüÁî:
+æ•°æ®åº“å¢åŠ æ–°åˆ—å‘½ä»¤:
 alter table think_student add j_id int null;
 
-¸øĞÂÁĞ·ÖÅä1-5Ö®¼äµÄËæ»úÊı
+ç»™æ–°åˆ—åˆ†é…1-5ä¹‹é—´çš„éšæœºæ•°
 update think_student set j_id = ceil(rand()*6);
 
-¸øĞÂÔöÁĞ·ÖÅä·Ç¿ÕÔ¼Êø
+ç»™æ–°å¢åˆ—åˆ†é…éç©ºçº¦æŸ
 alter table think_student modify column j_id int not null;
 
-¸ÄĞ´±íÖĞÖ÷¼üµÄmysqlÃüÁî:
-1.É¾³ıÔ­Ö÷¼üÁĞ,ÖØĞÂ½¨Á¢ĞÂµÄidÁĞ,²»Ê¹¸ÃÁĞÓµÓĞauto_incrementÄÜÁ¦
-alter table think_student drop column id;//È¥³ıÖ÷¼üÁĞ
+æ”¹å†™è¡¨ä¸­ä¸»é”®çš„mysqlå‘½ä»¤:
+1.åˆ é™¤åŸä¸»é”®åˆ—,é‡æ–°å»ºç«‹æ–°çš„idåˆ—,ä¸ä½¿è¯¥åˆ—æ‹¥æœ‰auto_incrementèƒ½åŠ›
+alter table think_student drop column id;//å»é™¤ä¸»é”®åˆ—
 alter table think_student add column id int null first;
 
-2.Ê¹ÓÃalter table ÃüÁî,
- Èç:alter table think_student modify column id int null;
+2.ä½¿ç”¨alter table å‘½ä»¤,
+ å¦‚:alter table think_student modify column id int null;
 
-°ÑÆÕÍ¨intÊı¾İÁĞ,ĞŞ¸ÄÎªÖ÷¼üÁĞµÄÃüÁî:
+æŠŠæ™®é€šintæ•°æ®åˆ—,ä¿®æ”¹ä¸ºä¸»é”®åˆ—çš„å‘½ä»¤:
 alter table think_student modify column id int not null auto_increment primary key;
 
 drop table if exists think_jibie;
@@ -32,47 +32,47 @@ create table if not exists think_jibie
 );
 desc think_jibie;
 
-insert into think_jibie values(null,'ÎåĞÇ¼¶','×îÓÅĞãÑ§Éú',now());
-insert into think_jibie values(null,'ËÄĞÇ¼¶','ÓÅĞãÑ§Éú',now());
-insert into think_jibie values(null,'ÈıĞÇ¼¶','Á¼ºÃÑ§Éú',now());
-insert into think_jibie values(null,'¶şĞÇ¼¶','ÆÕÍ¨Ñ§Éú',now());
-insert into think_jibie values(null,'Ò»ĞÇ¼¶','ºÏ¸ñÑ§Éú',now());
+insert into think_jibie values(null,'äº”æ˜Ÿçº§','æœ€ä¼˜ç§€å­¦ç”Ÿ',now());
+insert into think_jibie values(null,'å››æ˜Ÿçº§','ä¼˜ç§€å­¦ç”Ÿ',now());
+insert into think_jibie values(null,'ä¸‰æ˜Ÿçº§','è‰¯å¥½å­¦ç”Ÿ',now());
+insert into think_jibie values(null,'äºŒæ˜Ÿçº§','æ™®é€šå­¦ç”Ÿ',now());
+insert into think_jibie values(null,'ä¸€æ˜Ÿçº§','åˆæ ¼å­¦ç”Ÿ',now());
 
 
-insert into think_student values(null,'ÕÅÈı',85,'Èí¼ş¿ª·¢','±±¾©ÊĞ²ıÆ½Çø¶«¹ØÂ·18ºÅ',null);
-insert into think_student values(null,'ÀîËÄ',80,'»·¾³ÒÕÊõ','±±¾©ÊĞ·áÌ¨Çø¿ÆâùÂ·58ºÅ',null);
+insert into think_student values(null,'å¼ ä¸‰',85,'è½¯ä»¶å¼€å‘','åŒ—äº¬å¸‚æ˜Œå¹³åŒºä¸œå…³è·¯18å·',null);
+insert into think_student values(null,'æå››',80,'ç¯å¢ƒè‰ºæœ¯','åŒ—äº¬å¸‚ä¸°å°åŒºç§‘æ€¡è·¯58å·',null);
 
 select think_student.name, think_student.j_id, think_jibie.j_id,think_jibie.name
 
- select ±íA.ÁĞÃû1,±íA.ÁĞÃû2,,,±íA.ÁĞÃûN,
-	±íB.ÁĞÃû1,±íB.ÁĞÃû2,,,±íB.ÁĞÃûN
- from ±íA join ±íB
- on   ±íA.Ä³ÁĞÃû = ±íB.Ä³ÁĞÃû
+ select è¡¨A.åˆ—å1,è¡¨A.åˆ—å2,,,è¡¨A.åˆ—åN,
+	è¡¨B.åˆ—å1,è¡¨B.åˆ—å2,,,è¡¨B.åˆ—åN
+ from è¡¨A join è¡¨B
+ on   è¡¨A.æŸåˆ—å = è¡¨B.æŸåˆ—å
 select a.id,a.name,a.quantity,a.l_id,b.id,b.lei,b.bei from library as a join kind as b on a.l_id = b.id
 
- inner join ÄÚ²¿Á¬½Ó,Ò²ÊÇÄ¬ÈÏµÄÁ¬½Ó·½Ê½ÓÃÀ´·µ»ØÁ½ÕÅ±í(»ò¶àÕÅ±í)ÖĞ¹²Í¬Æ¥ÅäµÄ¼ÇÂ¼
+ inner join å†…éƒ¨è¿æ¥,ä¹Ÿæ˜¯é»˜è®¤çš„è¿æ¥æ–¹å¼ç”¨æ¥è¿”å›ä¸¤å¼ è¡¨(æˆ–å¤šå¼ è¡¨)ä¸­å…±åŒåŒ¹é…çš„è®°å½•
 
- left join ×óÍâÁ¬½Ó
-	   ÓÃÀ´·µ»Ø×ó±íÖĞÈ«²¿¼ÇÂ¼,Èç¹ûÔÚÓÒ±íÃ»ÓĞÆ¥ÅäµÄ¼ÇÂ¼ÔòÒÔnullµÄĞÎÊ½ÏÔÊ¾
+ left join å·¦å¤–è¿æ¥
+	   ç”¨æ¥è¿”å›å·¦è¡¨ä¸­å…¨éƒ¨è®°å½•,å¦‚æœåœ¨å³è¡¨æ²¡æœ‰åŒ¹é…çš„è®°å½•åˆ™ä»¥nullçš„å½¢å¼æ˜¾ç¤º
 
- right join ÓÒÍâÁ¬½Ó
-	    ÓÃÀ´·µ»ØÓÒ±íÖĞÈ«²¿¼ÇÂ¼,Èç¹ûÔÚ×ó±íÃ»ÓĞÆ¥ÅäµÄ¼ÇÂ¼ÔòÒÔnullµÄĞÎÊ½ÏÔÊ¾
+ right join å³å¤–è¿æ¥
+	    ç”¨æ¥è¿”å›å³è¡¨ä¸­å…¨éƒ¨è®°å½•,å¦‚æœåœ¨å·¦è¡¨æ²¡æœ‰åŒ¹é…çš„è®°å½•åˆ™ä»¥nullçš„å½¢å¼æ˜¾ç¤º
 
- full join È«ÍâÁ¬½Ó
-	   ÓÃÀ´·µ»ØÁ½ÕÅ±íÖĞÈ«²¿¼ÇÂ¼,Èç¹ûÔÚ×ó±í»òÓÒ±í¶¼Ã»ÓĞÆ¥ÅäµÄ¼ÇÂ¼,Ôò·Ö±ğÒÔnullµÄĞÎÊ½ÏÔÊ¾
+ full join å…¨å¤–è¿æ¥
+	   ç”¨æ¥è¿”å›ä¸¤å¼ è¡¨ä¸­å…¨éƒ¨è®°å½•,å¦‚æœåœ¨å·¦è¡¨æˆ–å³è¡¨éƒ½æ²¡æœ‰åŒ¹é…çš„è®°å½•,åˆ™åˆ†åˆ«ä»¥nullçš„å½¢å¼æ˜¾ç¤º
 
- left,right,fullÖ»ÄÜÓÃÓÚÁ½ÕÅ±í,²»ÄÜÓÃÓÚ¶àÕÅ±í.
+ left,right,fullåªèƒ½ç”¨äºä¸¤å¼ è¡¨,ä¸èƒ½ç”¨äºå¤šå¼ è¡¨.
 
- union --Ó¢ÎÄ:ÁªºÏ,²ÉÓÃÁªºÏÊµÏÖÈ«ÍâÁ¬½Ó
- ÁªºÏ¾ÍÊÇ±í¼ÇÂ¼µÄÀ©Õ¹,Èç:±íAÓĞ3Ìõ¼ÇÂ¼,±íBÓĞ5Ìõ¼ÇÂ¼ÁªºÏÖ®ºó,ÁĞÊı²»±ä,¼ÇÂ¼±äÎª8Ìõ
- Ê¹ÓÃunion»á×Ô¶¯ÔÚ½á¹û¼¯ÖĞÏû³ıÖØ¸´µÄ¼ÇÂ¼¼ÓÈëµÚ¶ş²ÎÊı,true,Ôò²»»áÏû³ıÖØ¸´¼ÇÂ¼
+ union --è‹±æ–‡:è”åˆ,é‡‡ç”¨è”åˆå®ç°å…¨å¤–è¿æ¥
+ è”åˆå°±æ˜¯è¡¨è®°å½•çš„æ‰©å±•,å¦‚:è¡¨Aæœ‰3æ¡è®°å½•,è¡¨Bæœ‰5æ¡è®°å½•è”åˆä¹‹å,åˆ—æ•°ä¸å˜,è®°å½•å˜ä¸º8æ¡
+ ä½¿ç”¨unionä¼šè‡ªåŠ¨åœ¨ç»“æœé›†ä¸­æ¶ˆé™¤é‡å¤çš„è®°å½•åŠ å…¥ç¬¬äºŒå‚æ•°,true,åˆ™ä¸ä¼šæ¶ˆé™¤é‡å¤è®°å½•
 
- inner ¿ÉÒÔÓÃÓÚÁ½ÕÅ¼°ÒÔÉÏµÄ±íÖĞ
+ inner å¯ä»¥ç”¨äºä¸¤å¼ åŠä»¥ä¸Šçš„è¡¨ä¸­
 
  select a.name, a.j_id, a.profess,
 	b.j_id, b.j_name, b.j_desc
  from think_student a inner join think_jibie b on a.j_id = b.j_id
- where b.j_name = 'ÎåĞÇ¼¶';
+ where b.j_name = 'äº”æ˜Ÿçº§';
 
 
 
