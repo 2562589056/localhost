@@ -1,0 +1,247 @@
+<meta charset='gbk'>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>购物车----jQuery</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+      h1 {
+        text-align:center;
+      }
+      table {
+        margin:0 auto;
+        width:60%;
+        border:2px solid #aaa;
+        border-collapse:collapse;
+      }
+      table th, table td {
+        border:2px solid #aaa;
+        padding:5px;
+      }
+      th {
+        background-color:#eee;
+      }
+    </style>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script type="text/javascript">
+      function add_shoppingcart(btn){//将btn(dom)转换为jQuery对象
+    	//先获取商品名字和单价还有库存以备后面使用
+    	var $tds = $(btn).parent().siblings();
+        //$tds.eq(0)是jQuery对象  $tds[0]是DOM对象
+    	var name = $tds.eq(0).html();//string
+    	var price = $tds.eq(1).html();//string
+    	var stock = $tds.eq(3).html();//string
+    	
+    	//查看库存是否还有<=0
+    	if(stock <= 0){
+    	  return;	
+    	}
+    	
+    	//无论购物车中是否有该商品,库存都要-1
+    	$tds.eq(3).html(--stock);
+    	
+    	//在添加之前确定该商品在购物车中是否存在,若存在,则数量+1,若不存在则创建行
+    	var $trs = $("#goods>tr");
+    	for(var i=0;i<$trs.length;i++){
+    	  var $gtds = $trs.eq(i).children();
+    	  var gName = $gtds.eq(0).html();
+    	  if(name == gName){//若存在
+    		var num = parseInt($gtds.eq(2).children().eq(1).val());
+    		$gtds.eq(2).children().eq(1).val(++num);//数量+1
+    		//金额从新计算
+    		$gtds.eq(3).html(price*num);
+    		return;//后面代码不再执行
+    	  }
+    	}
+    	//若不存在,创建后追加
+    	var li =
+    	  "<tr>"+
+            "<td>"+name+"</td>"+
+            "<td>"+price+"</td>"+
+            "<td align='center'>"+
+              "<input type='button' value='-' onclick='decrease(this);'/> "+
+              "<input type='text' size='3' readonly value='1'/> "+
+              "<input type='button' value='+' onclick='increase(this);'/>"+
+            "</td>"+
+            "<td>"+price+"</td>"+
+            "<td align='center'>"+
+              "<input type='button' value='x' onclick='del(this);'/>"+
+            "</td>"+
+          "</tr>";
+    	//追加到#goods后面
+    	$("#goods").append($(li));
+    	
+    	//总计功能
+    	total();
+      }
+      
+      //辅助方法--单击购物车中的"+"  "-"  "x"按钮是找到相关商品所在td,以jQuery对象返回
+      function findStock(btn){
+    	var name = $(btn).parent().siblings().eq(0).html();//获取商品名字
+    	//注意table默认有行分组,若此处使用 $("#table1>tr:gt(0)")则找不到任何tr
+    	var $trs = $("#table1>tbody>tr:gt(0)");
+    	for(var i=0;i<$trs.length;i++){
+    	  var fName = $trs.eq(i).children().eq(0).html();
+    	  if(name == fName){//找到匹配的商品
+    		return $trs.eq(i).children().eq(3);
+    	  }
+    	}
+      }
+      
+      //增加"+"功能
+      function increase(btn){
+    	//获取该商品库存看是否<=0
+    	var $stock = findStock(btn);
+    	var stock = $stock.html();
+    	if(stock <= 0){
+    	  return;
+    	}
+    	//库存-1  
+    	$stock.html(--stock);
+    	//购物车数据改变
+    	var $td = $(btn).prev();
+    	var num = parseInt($td.val());//number
+    	//num此时为number类型(在计算时会自动转换为number类型)
+    	$td.val(++num);
+    	//获取单价,再加计算前要先转换为number类型
+    	var price = parseInt($(btn).parent().prev().html());
+    	$(btn).parent().next().html(num*price);
+    	
+    	//总计功能
+    	total();
+      }
+      
+      //减少"-"功能
+      function decrease(btn){
+    	//该商品数量=1时候不能再减少
+    	var num = parseInt($(btn).next().val());
+    	if(num <= 1){
+    	  return;	
+    	}
+    	var $stock = findStock(btn);
+    	//库存+1
+    	var stock = $stock.html();
+    	$stock.html(++stock);
+    	//商品数量-1
+    	$(btn).next().val(--num);
+    	//从新计算金额
+    	var price = parseInt($(btn).parent().prev().html());
+    	$(btn).parent().next().html(price*num);
+    	
+    	//总计功能
+    	total();
+      }
+      
+      //"x"删除按钮功能
+      function del(btn){
+    	//将商品数量归还库存
+    	var $stock = findStock(btn);
+    	var stock = parseInt($stock.html());
+    	var num = parseInt($(btn).parent().prev().prev().children().eq(1).val());
+    	$stock.html(num + stock);
+    	//清空改行商品列表
+    	$(btn).parent().parent().remove();
+    	
+    	//总计功能
+    	total();
+      }
+    //总计功能
+    function total(){
+      //获取所有购物车中的trs
+      var $trs = $("#goods tr");
+      var amount = 0;
+      for(var i=0;i<$trs.length;i++){
+    	var money = parseInt($trs.eq(i).children().eq(3).html());
+    	amount += money;
+      }
+      //写入总计栏
+      $("#total").html(amount);
+    }
+    </script>
+  </head>
+  <body>
+    <h1>真划算</h1>
+    <table id="table1">
+      <tr>
+        <th>商品</th>
+        <th>单价(元)</th>
+        <th>颜色</th>
+        <th>库存</th>
+        <th>好评率</th>
+        <th>操作</th>
+      </tr>   
+      <tr>
+        <td>罗技M185鼠标</td>
+        <td>80</td>
+        <td>黑色</td>
+        <td>5</td>
+        <td>98%</td>
+        <td align="center">
+          <input type="button" value="加入购物车" onclick="add_shoppingcart(this);"/>
+        </td>
+      </tr>
+      <tr>
+        <td>微软X470键盘</td>
+        <td>150</td>
+        <td>黑色</td>
+        <td>9028</td>
+        <td>96%</td>
+        <td align="center">
+          <input type="button" value="加入购物车" onclick="add_shoppingcart(this);"/>
+        </td>
+      </tr>
+      <tr>
+        <td>洛克iphone6手机壳</td>
+        <td>60</td>
+        <td>透明</td>
+        <td>672</td>
+        <td>99%</td>
+        <td align="center">
+          <input type="button" value="加入购物车" onclick="add_shoppingcart(this);"/>
+        </td>
+      </tr>
+      <tr>
+        <td>蓝牙耳机</td>
+        <td>100</td>
+        <td>蓝色</td>
+        <td>8937</td>
+        <td>95%</td>
+        <td align="center">
+          <input type="button" value="加入购物车" onclick="add_shoppingcart(this);"/>
+        </td>
+      </tr>
+      <tr>
+        <td>金士顿U盘</td>
+        <td>70</td>
+        <td>红色</td>
+        <td>482</td>
+        <td>100%</td>
+        <td align="center">
+          <input type="button" value="加入购物车" onclick="add_shoppingcart(this);"/>
+        </td>
+      </tr>
+    </table>
+  
+    <h1>购物车</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>商品</th>
+          <th>单价(元)</th>
+          <th>数量</th>
+          <th>金额(元)</th>
+          <th>删除</th>
+        </tr>
+      </thead>
+      <tbody id="goods">
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3" align="right">总计</td>
+          <td id="total"></td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>    
+  </body>
+</html>

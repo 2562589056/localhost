@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>
+<script src="js/common_js.js" type="text/javascript"></script>
+<script src="js/footer.js" type="text/javascript"></script>
+<script src="layer/layer.js" type="text/javascript"></script>
+<script src="Plugins/laydate/laydate.js" type="text/javascript"></script>
+<title>消息中心</title>
+</head>
+
+<body>
+<head>
+ <div id="header_top">
+  <div id="top">
+    <div class="Inside_pages">
+      <div class="Collection"><a href="#" class="green">请登录</a> <a href="#" class="green">免费注册</a></div>
+	<div class="hd_top_manu clearfix">
+	  <ul class="clearfix">
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">首页</a></li> 
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
+       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
+        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>(23)</b></a></li>	
+	  </ul>
+	</div>
+    </div>
+  </div>
+  <div id="header"  class="header page_style">
+  <div class="logo"><a href="index.html"><img src="images/logo.png" /></a></div>
+  <!--结束图层-->
+  <div class="Search">
+        <div class="search_list">
+            <ul>
+                <li class="current"><a href="#">产品</a></li>
+                <li><a href="#">信息</a></li>
+            </ul>
+        </div>
+        <div class="clear search_cur">
+           <input name="searchName" id="searchName" class="search_box" onkeydown="keyDownSearch()" type="text">
+           <input name="" type="submit" value="搜 索"  class="Search_btn"/>
+        </div>
+        <div class="clear hotword">热门搜索词：香醋&nbsp;&nbsp;&nbsp;茶叶&nbsp;&nbsp;&nbsp;草莓&nbsp;&nbsp;&nbsp;葡萄&nbsp;&nbsp;&nbsp;菜油</div>
+</div>
+ <!--购物车样式-->
+ <div class="hd_Shopping_list" id="Shopping_list">
+   <div class="s_cart"><a href="#">我的购物车</a> <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">0</i></div>
+   <div class="dorpdown-layer">
+    <div class="spacer"></div>
+	 <!--<div class="prompt"></div><div class="nogoods"><b></b>购物车中还没有商品，赶紧选购吧！</div>-->
+	 <ul class="p_s_list">	   
+		<li>
+		    <div class="img"><img src="images/tianma.png"></div>
+		    <div class="content"><p class="name"><a href="#">产品名称</a></p><p>颜色分类:紫花8255尺码:XL</p></div>
+			<div class="Operations">
+			<p class="Price">￥55.00</p>
+			<p><a href="#">删除</a></p></div>
+		  </li>
+		</ul>		
+	 <div class="Shopping_style">
+	 <div class="p-total">共<b>1</b>件商品　共计<strong>￥ 515.00</strong></div>
+	  <a href="Shop_cart.html" title="去购物车结算" id="btn-payforgoods" class="Shopping">去购物车结算</a>
+	 </div>	 
+   </div>
+ </div>
+</div>
+<!--菜单栏-->
+	<div class="Navigation" id="Navigation">
+		 <ul class="Navigation_name">
+			<li><a href="Home.html">首页</a></li>
+			<li><a href="#">你身边的超市</a></li>
+			<li><a href="#">预售专区</a><em class="hot_icon"></em></li>
+			<li><a href="products_list.html">商城</a></li>
+			<li><a href="#">半小时生活圈</a></li>
+			<li><a href="#">好评商户</a></li>
+			<li><a href="#">热销活动</a></li>
+			<li><a href="Brands.html">联系我们</a></li>
+		 </ul>			 
+		</div>
+	<script>$("#Navigation").slide({titCell:".Navigation_name li",trigger:"click"});</script>
+    </div>
+</head>
+<!--消息中心样式-->
+<div class="Inside_pages">
+ <div class="Message_Center"> 
+  <div class="title_name">消息中心</div>
+  <div class="Message_content" id="Message_content">
+    <div class="hd">
+     <ul>
+      <li>系统消息</li>
+      <li>我的留言</li>
+     </ul>
+    </div>
+    <div class="bd">
+      <ul class="system_info">
+       <li><i>●</i><a href="javascript:ovid(0)" class="system_btn">公司商城网站开通成功！欢迎大家的访问。</a></li>
+       <li><i>●</i><a href="javascript:ovid(0)" class="system_btn">您好，您提交的商品发布未通过审核，请您联系客服。</a></li>
+       <li><i>●</i><a href="javascript:ovid(0)" class="system_btn">你已经注册为我们商城的会员，欢迎你的加入。</a></li>
+       <li><i>●</i><a href="javascript:ovid(0)" class="system_btn">公司商城网站开通成功！欢迎大家的访问。</a></li>
+       <li><i>●</i><a href="javascript:ovid(0)" class="system_btn">公司商城网站开通成功！欢迎大家的访问。</a></li>
+      </ul>
+      <ul class="Appraisal_style">
+      <!--留言信息样式-->
+        <div class="Appraisal_list">
+      <table>
+       <thead>
+       <tr class="label_name"><td class="name">用户名</td><td class="time">提交时间</td><td class="score">消息类型</td><td class="content">评价内容</td><td class="operating">操作</td></tr>
+       </thead>
+       <tbody>
+        <tr>
+        <td class="center">化海天堂神</td>
+        <td class="center">2016-4-11 23:11:23</td>
+        <td class="center">店铺</td>
+        <td>
+        <p>东西几天前已收到，因为出门几天有些事，今天回来才确认收货，包装的很严密，东西没有丝毫损伤，也很漂亮，无论各方面都很不错，好评东西几天前已收到，因为出门几天有些事，今天回来才确认收货，包装的很严密，东西没有丝毫损伤，也很漂亮，无论各方面都很不错，好评</p>
+        <div class="Reply_style">
+         <p class="">2016-02-22 18:00:00  回复：</p>
+         <p>谢谢你的评价！</p>
+        </div>
+        </td>       
+        <td class="operating_btn center"><a href="#" >回复</a>|<a href="#">删除</a></td></tr>
+        <tr>
+        <td class="center">化海天堂神</td>
+        <td class="center">2016-4-11 23:11:23</td>
+        <td class="center">商品</td>
+        <td>
+        <p>东西几天前已收到，因为出门几天有些事，今天回来才确认收货，包装的很严密，东西没有丝毫损伤，也很漂亮，无论各方面都很不错，好评东西几天前已收到，因为出门几天有些事，今天回来才确认收货，包装的很严密，东西没有丝毫损伤，也很漂亮，无论各方面都很不错，好评</p> 
+        </td>       
+        <td class="operating_btn center"><a href="#" >回复</a>|<a href="#">删除</a></td></tr>
+        <tr>
+        <td class="center">化海天堂神</td>
+        <td class="center">2016-4-11 23:11:23</td>
+        <td class="center">店铺</td>
+        <td>
+        <p>东西几天前已收到，因为出门几天有些事，今天回来才确认收货，包装的很严密，东西没有丝毫损伤，也很漂亮，无论各方面都很不错，好评东西几天前已收</p> 
+        </td>       
+        <td class="operating_btn center"><a href="#" >回复</a>|<a href="#">删除</a></td></tr>
+       </tbody>
+      </table>     
+      </div>
+      </ul>
+    </div>
+  </div>
+  <script type="text/javascript">jQuery("#Message_content").slide({trigger:"click",delayTime:0});</script>
+ </div>
+</div>
+<!--系统消息内容-->
+<div class="xx_content" id="Messagecontent" style="display:none; padding:15px; line-height:24px;">
+  您好，您提交的商品发布未通过审核，商品编号：2345454，请及时处理或从新上传更新。请您联系客服。<br />
+  今天下午16点，《一单定乾坤》案例分享栏目准时开讲！<br />
+欢迎大家加群听课：【一单定乾坤】 246588368<br />
+本期邀请了诸博科技的梁总来给大家分享：《保姆式谈单的"成功法则"》！！！<br />
+主讲内容：谈单时注意拿捏客户心态，循环渐进，用产品经理的思路打造出客户需要的产品。<br />
+重磅课程，精细分享！不来铁定后悔！<br />
+听课地址：http://qun.qq.com/rich/?roomid=4136588368 
+</div>
+<script type="text/javascript">
+ $('.system_btn').on('click', function(){
+    layer.open({
+    type: 1,
+	title:'系统消息',
+	area: ['600px',''],
+	shadeClose: true,
+	btn:'确认',
+	content: $('#Messagecontent')
+    });
+});
+</script>
+</body>
+</html>

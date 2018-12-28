@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>运费模板</title>
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="skins/all.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>
+<script src="js/common_js.js" type="text/javascript"></script>
+<script src="js/footer.js" type="text/javascript"></script>
+<script src="js/iCheck.js" type="text/javascript"></script>
+<script src="js/custom.js" type="text/javascript"></script>
+</head>
+
+<body>
+<!--运费模板样式属性-->
+<div class="add_yfmb_style">
+
+   <form id="form1" name="form1" method="post" action="">
+ <ul class="add_template_style">
+  <li><label class="name">模板名称</label><div class="add_content"><input name="" type="text"  class="addtext_name"  style=" width:300px;"/></div></li>
+  <li><label class="name">宝贝地址</label><div class="add_content"> <select size="1">
+              <option value="1">请选择国家</option>
+            </select>
+             <select size="1">
+              <option value="1">省</option>
+            </select>
+            <select size="1">
+              <option value="2">市</option>
+            </select>
+            <select size="1">
+              <option value="3">县/区</option>
+            </select></div>
+            </li>
+  <li><label class="name">发货时间</label><div class="add_content"> <select size="1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select><span>设置宝贝发货时间，可以尽快的促成交易</span></div></li>
+  <li><label class="name">是否包邮</label><div class="add_content">
+
+      <p class="radio_style">
+        <label>
+          <input type="radio" name="RadioGroup1" value="1" id="RadioGroup1_0" />
+          <span>包邮</span></label>
+        <label>
+          <input type="radio" name="RadioGroup1" value="2" id="RadioGroup1_1" />
+          <span>不包邮</span></label>
+        <br />
+      </p>
+  </div></li>
+  <li><label class="name">计价方式</label><div class="add_content">
+      <p class="radio_style">
+        <label>
+          <input type="radio" name="RadioGroup2" value="1" id="RadioGroup2_0" />
+          <span>按件数</span></label>
+        <label>
+          <input type="radio" name="RadioGroup2" value="2" id="RadioGroup2_1" />
+          <span>按体积</span></label>
+        <label>
+          <input type="radio" name="RadioGroup2" value="3" id="RadioGroup2_2" />
+          <span>按重量</span></label>
+      </p>
+    
+  </div></li>
+  <li><label class="name">运送方式</label><div class="add_content"><h4>除指定地区以外，其他地区的运费采用“默认运费”</h4>
+      <div class="yunfei_sz">
+      <label class="yfxz_checkbox"><input name="" type="checkbox" checked="checked" />快递</label>      
+         <div class="yunfei_content1">
+         默认运费<input name="" type="text"  class="text_yunfei"/>kg以内<input name="" type="text" class="text_yunfei"/>美增加<input name="" type="text" class="text_yunfei"/>kg增加运费<input name="" type="text" class="text_yunfei"/>元
+         </div>
+         <table class="list_yfmb" cellpadding="0" cellspacing="0" width="100%"> 
+           <thead>
+           <tr class="label_name">
+           <td width="300px">运送范围</td>
+           <td width="80px">首重（kg）</td>
+           <td width="80px">首费（元）</td>
+           <td width="80px">续重（kg）</td>
+           <td width="80px">续费（元）</td>
+           <td width="80px">操作</td>
+           </tr>
+           </thead>
+           <tbody>
+            <tr>
+            <td><a href="#" class="add_rea">添加</a></td>
+            <td><input name="" type="text" class="text_yunfei"/></td>
+            <td><input name="" type="text" class="text_yunfei"/></td>
+            <td><input name="" type="text" class="text_yunfei"/></td>
+            <td><input name="" type="text" class="text_yunfei"/></td>
+            <td><a href="#">删除</a></td>
+            </tr>
+           </tbody>
+         </table>
+      </div>
+  <div class="yunfei_sz"><label class="yfxz_checkbox"><input name="" type="checkbox" />EMS</label></div>
+  <div class="yunfei_sz"><label class="yfxz_checkbox"><input name="" type="checkbox" />平邮</label></div>
+  </li>
+  <li><label ><input name="" type="checkbox" />指定条件包邮可选</label></li>
+  <li class="center">
+  <button id=""  class="bc_btn">保存并返回</button><button id=""  class="quxiao_btn">取消新增</button>
+  </li>
+ </ul>
+ 
+</form>
+ 
+</div>
+ <script>
+            $(document).ready(function(){
+              $('.add_template_style input').iCheck({
+                checkboxClass: 'icheckbox_flat-green',
+                radioClass: 'iradio_flat-green'
+              });
+            });
+            </script>
+</body>
+</html>
